@@ -51,4 +51,14 @@ public class PostServiceImpl implements PostService {
     public void deletePost(long id) {
         postRepository.deletePost(id);
     }
+
+    @Override
+    public List<PostDto> filterByAuthor(String author) {
+        return listMapper.mapList(postRepository.filterByAuthor(author), PostDto.class);
+    }
+
+    @Override
+    public List<PostDto> filterByAuthorContainsWord(String author) {
+        return listMapper.mapList(postRepository.filterByAuthorContainWord(author), PostDto.class);
+    }
 }

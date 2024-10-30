@@ -14,4 +14,8 @@ public interface PostService {
     void updatePost(long id, PostDto post);
 
     void deletePost(long id);
+
+    List<PostDto> filterByAuthor(String author);
+
+    List<PostDto> filterByAuthorContainsWord(String author);
 }

@@ -14,4 +14,8 @@ public interface PostRepository {
     void updatePost(long id, Post post);
 
     void deletePost(long id);
+
+    List<Post> filterByAuthor(String author);
+
+    List<Post> filterByAuthorContainWord(String author);
 }

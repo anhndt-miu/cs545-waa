@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Repository
@@ -60,4 +61,15 @@ public class PostRepositoryImpl implements PostRepository {
     public void deletePost(long id) {
         posts.stream().filter(x -> x.getId() == id).findFirst().ifPresent(posts::remove);
     }
+
+    @Override
+    public List<Post> filterByAuthor(String author) {
+        return posts.stream().filter(x -> x.getAuthor().contentEquals(author)).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Post> filterByAuthorContainWord(String author) {
+        return posts.stream().filter(x -> x.getAuthor().toLowerCase().contains(author.toLowerCase())).collect(Collectors.toList());
+    }
+
 }

@@ -49,4 +49,14 @@ public class PostController {
     public void addPost(@RequestBody PostDto postDto) {
         postService.createPost(postDto);
     }
+
+    @GetMapping("/author/filter")
+    public List<PostDto> getPostsByAuthor(@RequestParam String author) {
+        return postService.filterByAuthor(author);
+    }
+
+    @GetMapping("/search")
+    public List<PostDto> getPostsByAuthorText(@RequestParam String text) {
+        return postService.filterByAuthorContainsWord(text);
+    }
 }
