@@ -24,6 +24,7 @@ public class LoggerAspect {
     @Autowired
     ExceptionService exceptionService;
 
+
     @After("execution(* dev.anhndt.lab5.service.*.*(..))")
     public void logAfterMethodExecution(JoinPoint joinPoint) {
 
