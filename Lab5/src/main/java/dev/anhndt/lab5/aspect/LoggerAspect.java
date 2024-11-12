@@ -27,7 +27,6 @@ public class LoggerAspect {
 
     @After("execution(* dev.anhndt.lab5.service.*.*(..))")
     public void logAfterMethodExecution(JoinPoint joinPoint) {
-
         // Get current date and time
         LocalDateTime now = LocalDateTime.now();
 
